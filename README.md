@@ -49,4 +49,7 @@ To access the application:
 1. Find the ALB's DNS name in the AWS EC2 console
 2. Open the DNS name in a web browser
 ## Screenshots
-hhh
+```markdown![Vpc architecture](https://github.com/user-attachments/assets/f3e7f81c-c217-4926-ab7a-ca61fe4fb773)
+![Screen Shot 2024-10-17 at 9 27 12 PM](https://github.com/user-attachments/assets/e24aee9d-9211-444a-b12e-1234582600f5)
+![Screen Shot 2024-10-17 at 8 24 37 PM](https://github.com/user-attachments/assets/288978e3-64dd-45a7-aa49-13dfd2075de4)
+

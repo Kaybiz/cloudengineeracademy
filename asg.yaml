@@ -133,26 +133,30 @@ Resources:
           CidrIp: "0.0.0.0/0"
 
   # Launch Config
-  MyLaunchConfiguration:
-    Type: "AWS::AutoScaling::LaunchConfiguration"
+  MyLaunchTemplate:
+    Type: "AWS::EC2::LaunchTemplate"
     Properties:
-      ImageId: "ami-0fff1b9a61dec8a5f"
-      InstanceType: "t2.micro"
-      SecurityGroups:
-        - !Ref WebServerSecurityGroup
-      UserData:
-        Fn::Base64: !Sub |
-          #!/bin/bash
-          yum install -y httpd
-          systemctl start httpd
-          systemctl enable httpd
-          echo "Hello from Auto Scaling Instance" > /var/www/html/index.html
+      LaunchTemplateData:
+        ImageId: "ami-0fff1b9a61dec8a5f"
+        InstanceType: "t2.micro"
+        SecurityGroupIds:
+          - !Ref WebServerSecurityGroup
+        UserData:
+          Fn::Base64: 
+            !Sub |
+              #!/bin/bash
+              yum install -y httpd
+              systemctl start httpd
+              systemctl enable httpd
+              echo "Hello from Auto Scaling Instance" > /var/www/html/index.html
 
   # ASG
   MyAutoScalingGroup:
     Type: "AWS::AutoScaling::AutoScalingGroup"
     Properties:
-      LaunchConfigurationName: !Ref MyLaunchConfiguration
+      LaunchTemplate:
+        LaunchTemplateId: !Ref MyLaunchTemplate
+        Version: !GetAtt  MyLaunchTemplate.LatestVersionNumber
       MinSize: 1
       MaxSize: 3
       DesiredCapacity: 2

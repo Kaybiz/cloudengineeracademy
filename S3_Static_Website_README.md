@@ -114,11 +114,10 @@ hosting'
                    - !Ref S3Bucket
                    - /*
          Bucket: !Ref S3Bucket
-   
-   Outputs:
-     WebsiteURL:
-      b
+  
+
 Here is my VSCode interface for reference:
+
 <img src="images/s3-stack-deployment.png" alt="Stack 
 Deployment">
 
@@ -139,8 +138,6 @@ aws cloudformation create-stack --stack-name my-static-website
 
 Copy
 
-Insert at cursor
-text
 Wait for the stack creation to complete. You can check the 
 status in the AWS CloudFormation console.
 
@@ -157,8 +154,7 @@ aws s3 cp index.html s3://my-static-website-ki
 
 Copy
 
-Insert at cursor
-text
+
 Remember to replace my-static-website-ki with your actual bucket 
 name.
 4. View the Static Website
@@ -199,14 +195,17 @@ S3 Bucket Permissions
 
 Conclusion
 You should now have a functioning static website hosted on 
-Amazon S3. The CloudFormation template automates most of the 
+Amazon S3:
+<img src="images/static-website.png" alt="Static Website">
+
+Note: Welcome to my S3 hosted website is the text in my HTML.You 
+can customize yours to suit your need.
+
+The CloudFormation template automates most of the 
 setup, but remember to always be cautious with public access 
 settings and only host content that is intended to be publicly 
-accessible.
-
-Security Note
-This setup creates a publicly readable S3 bucket. Ensure that 
-you only upload content that is intended for public access. For 
+accessible.This setup creates a publicly readable S3 bucket. 
+Ensure that you only upload content that is intended for public access. For 
 more secure configurations, consider using Amazon CloudFront 
 with your S3 bucket.
 

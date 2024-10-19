@@ -4,6 +4,7 @@ This project demonstrates the setup of a robust AWS infrastructure using CloudFo
 ## Overview
 This CloudFormation template creates a comprehensive AWS infrastructure designed for scalability and high availability. It includes a custom VPC with public and private subnets across two Availability Zones, an Auto Scaling Group for EC2 instances, and associated security and networking components.
 
+![VPC Architecture](images/Vpc%20architecture.web.png)
 ## Features
 - Custom VPC with public and private subnets
 - Multi-AZ architecture for high availability
@@ -29,6 +30,8 @@ The infrastructure includes:
 6. Application Load Balancer
 7. CloudWatch alarms for scaling policies
 
+![VPC Architecture](images/Vpc%20architecture.web.png)
+
 ## Setup and Deployment
 1. Ensure you have AWS CLI configured with appropriate permissions.
 2. Clone this repository to your local machine.
@@ -37,7 +40,11 @@ The infrastructure includes:
    ```
    aws cloudformation create-stack --stack-name my-vpc-asg-stack --template-body file://asg.yaml
    ```
+![ASG CloudFormation](images/ASG-Clouformation.png)
+
 5. Monitor the stack creation process in the AWS CloudFormation console.
+
+![Auto Scaling Group Full Stack Deployment](images/Auto-scaling-group-full-stack-deployment.png)
 
 ## Usage
 Once deployed, the infrastructure will:
@@ -48,9 +55,4 @@ Once deployed, the infrastructure will:
 To access the application:
 1. Find the ALB's DNS name in the AWS EC2 console
 2. Open the DNS name in a web browser
-## Screenshots
-```markdown!
-[Vpc architecture](https://github.com/user-attachments/assets/f3e7f81c-c217-4926-ab7a-ca61fe4fb773)
-![Screen Shot 2024-10-17 at 9 27 12 PM](https://github.com/user-attachments/assets/e24aee9d-9211-444a-b12e-1234582600f5)
-![Screen Shot 2024-10-17 at 8 24 37 PM](https://github.com/user-attachments/assets/288978e3-64dd-45a7-aa49-13dfd2075de4)
 

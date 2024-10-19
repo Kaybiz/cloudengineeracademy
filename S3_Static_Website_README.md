@@ -1,32 +1,210 @@
-# S3 Static Website Hosting with CloudFormation<p></p>
-<h2>Description</h2>
-<p>This project contains an AWS CloudFormation template for 
-setting up an S3 bucket configured for static website 
-hosting.</p>
-<h2>Template Details</h2>
-<p>The CloudFormation template (s3-static.yaml) creates:</p>
-<ul>
-<li><p>An S3 bucket configured for static website hosting</p>
-</li><li><p>A bucket policy allowing public read access</p>
-</li></ul>
-<h2>Usage</h2>
-<ol>
-<li><p>Ensure AWS CLI is installed and configured.</p>
-</li><li><p>Deploy the stack:
+# S3 Static Website Hosting with CloudFormation
+
+## Project Overview
+This project demonstrates how to set up a static website using 
+Amazon S3 and AWS CloudFormation. It includes steps for 
+creating the S3 bucket, deploying a simple HTML file, and 
+configuring the necessary permissions for public access.
+<p><img src="images/static-website-architecture.png" alt="Static 
+Website Architecture"></p>
+## Prerequisites
+- AWS CLI installed and configured
+- Access to AWS Console
+- A code editor (VS Code, Zed, etc.)
+
+## Step-by-Step Guide
+
+### 1. Create CloudFormation Template
+1. Open your preferred code editor (VS Code, Zed, etc.).
+2. Create a new file and name it `s3-static.yaml`.
+3. Copy the following CloudFormation template into the file:
+
+   ```yaml
+   AWSTemplateFormatVersion: '2010-09-09'
+   Description: 'CloudFormation template for S3 static website 
+hosting'
+   
+   Resources:
+     S3Bucket:
+       Type: AWS::S3::Bucket 
+[[1]](https://community.aws/content/2cKdKbYy9fz0hIakU5tqf42siAA/hosting-my-static-website-in-an-aws-s3-bucket-part-1)
+       Properties:
+         BucketName: my-static-website-ki 
+[[2]](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html)
+         AccessControl: PublicRead
+         WebsiteConfiguration:
+           IndexDocument: index.html
+           ErrorDocument: error.html
+   
+     BucketPolicy:
+       Type: AWS::S3::BucketPolicy
+       Properties:
+         PolicyDocument:
+           Id: MyPolicy
+           Version: 2012-10-17
+           Statement:
+             - Sid: PublicReadForGetBucketObjects
+               Effect: Allow
+               Principal: '*'
+               Action: 's3:GetObject'
+               Resource: !Join 
+                 - ''
+                 - - 'arn:aws:s3:::'
+                   - !Ref S3Bucket
+                   - /*
+         Bucket: !Ref S3Bucket
+   
+   Outputs:
+     WebsiteURL:
+       Value: !GetAtt 
+         - S3Bucket
+         - WebsiteURL
+       Description: URL for website hosted on S3# 
+S3 Static Website Hosting with CloudFormation
+
+## Project Overview
+This project demonstrates how to set up a static website using 
+Amazon S3 and AWS CloudFormation. It includes steps for creating 
+the S3 bucket, deploying a simple HTML file, and configuring the 
+necessary permissions for public access.
+
+## Prerequisites
+- AWS CLI installed and configured
+- Access to AWS Console
+- A code editor (VS Code, Zed, etc.)
+
+## Step-by-Step Guide
+
+### 1. Create CloudFormation Template
+1. Open your preferred code editor (VS Code, Zed, etc.).
+2. Create a new file and name it `s3-static.yaml`.
+3. Copy the following CloudFormation template into the file:
+
+   ```yaml
+   AWSTemplateFormatVersion: '2010-09-09'
+   Description: 'CloudFormation template for S3 static website 
+hosting'
+   
+   Resources:
+     S3Bucket:
+       Type: AWS::S3::Bucket 
+[[1]](https://community.aws/content/2cKdKbYy9fz0hIakU5tqf42siAA/hosting-my-static-website-in-an-aws-s3-bucket-part-1)
+       Properties:
+         BucketName: my-static-website-ki 
+[[2]](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html)
+         AccessControl: PublicRead
+         WebsiteConfiguration:
+           IndexDocument: index.html
+           ErrorDocument: error.html
+   
+     BucketPolicy:
+       Type: AWS::S3::BucketPolicy
+       Properties:
+         PolicyDocument:
+           Id: MyPolicy
+           Version: 2012-10-17
+           Statement:
+             - Sid: PublicReadForGetBucketObjects
+               Effect: Allow
+               Principal: '*'
+               Action: 's3:GetObject'
+               Resource: !Join 
+                 - ''
+                 - - 'arn:aws:s3:::'
+                   - !Ref S3Bucket
+                   - /*
+         Bucket: !Ref S3Bucket
+   
+   Outputs:
+     WebsiteURL:
+      b
+
+Note: Replace my-static-website-ki with a globally unique bucket 
+name.
+
+Save the file.
+
+2. Deploy the CloudFormation Stack
+Open your terminal.
+
+Navigate to the directory containing your s3-static.yaml file.
+
+Run the following AWS CLI command to create the stack:
+
 aws cloudformation create-stack --stack-name my-static-website 
---template-body file://s3-static.yaml</p>
-</li></ol>
-<h2>Parameters</h2>
-<ul>
-<li><p>BucketName: Name of the S3 bucket (default: 
-'XXXXXXXXXXXXXXXXXXXX')</p>
-</li></ul>
-<h2>Outputs</h2>
-<ul>
-<li><p>WebsiteURL: URL of the static website</p>
-</li></ul>
-<h2>Security</h2>
-<p>Note: This creates a publicly readable S3 bucket. Only upload 
-content intended to be public.</p>
-<h2>Author</h2>
+--template-body file://s3-static.yaml
+
+Copy
+
+Insert at cursor
+text
+Wait for the stack creation to complete. You can check the 
+status in the AWS CloudFormation console.
+
+Stack Deployment
+
+
+3. Upload HTML File to S3 Bucket
+Create a simple index.html file in the same directory as your 
+CloudFormation template.
+
+Use the AWS CLI to copy the HTML file to your S3 bucket:
+
+aws s3 cp index.html s3://my-static-website-ki
+
+Copy
+
+Insert at cursor
+text
+Remember to replace my-static-website-ki with your actual bucket 
+name.
+4. View the Static Website
+Navigate to the AWS S3 console.
+
+Find your bucket and click on it.
+
+Go to the "Properties" tab.
+
+Scroll down to "Static website hosting" and click on the bucket 
+website endpoint.
+
+<p>After deploying the CloudFormation stack, you should see 
+something like this in the AWS Console:</p>
+<p><img src="images/aws-console-s3-web-stack.png" alt="AWS 
+Console S3 Web Stack"></p>
+
+5. Troubleshooting Access Denied Error
+<p>If you see an access denied error like this:</p>
+<p><img src="images/static-website-access-denied.png" 
+alt="Static Website Access Denied"></p>
+If you encounter an "Access Denied" error when trying to view 
+your website, follow these steps:
+
+Go to the S3 console and select your bucket.
+
+Click on the "Permissions" tab.
+
+Under "Block public access (bucket settings)", click "Edit".
+
+Uncheck "Block all public access" and save changes.
+
+In the "Bucket policy" section, ensure that the policy allowing 
+public read access is in place (this should have been created by 
+the CloudFormation template).
+
+S3 Bucket Permissions
+
+Conclusion
+You should now have a functioning static website hosted on 
+Amazon S3. The CloudFormation template automates most of the 
+setup, but remember to always be cautious with public access 
+settings and only host content that is intended to be publicly 
+accessible.
+
+Security Note
+This setup creates a publicly readable S3 bucket. Ensure that 
+you only upload content that is intended for public access. For 
+more secure configurations, consider using Amazon CloudFront 
+with your S3 bucket.
+
 

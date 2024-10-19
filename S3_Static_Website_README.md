@@ -61,11 +61,12 @@ Here is my VSCode interface for reference:
 Deployment">
 
 Note: Replace my-static-website-ki with a globally unique bucket 
-name.
+name. 
 
 Save the file.
 
 2. Deploy the CloudFormation Stack
+
 Open your terminal.
 
 Navigate to the directory containing your s3-static.yaml file.
@@ -79,6 +80,7 @@ Copy
 
 Wait for the stack creation to complete. You can check the 
 status in the AWS CloudFormation console.
+
 
 Stack Deployment
 
@@ -96,6 +98,7 @@ Copy
 
 Remember to replace my-static-website-ki with your actual bucket 
 name.
+
 4. View the Static Website
 Navigate to the AWS S3 console.
 
@@ -107,16 +110,19 @@ Scroll down to "Static website hosting" and click on the bucket
 website endpoint.
 
 <p>After deploying the CloudFormation stack, you should see 
-something like this in the AWS Console:</p>
+something like this in the AWS Console:
+</p>
 <p><img src="images/aws-console-s3-web-stack.png" alt="AWS 
 Console S3 Web Stack"></p>
 
 5. Troubleshooting Access Denied Error
-<p>If you see an access denied error like this:</p>
+
+<p>If you see an access denied error like this:
+
 <p><img src="images/static-website-access-denied.png" 
 alt="Static Website Access Denied"></p>
-If you encounter an "Access Denied" error when trying to view 
-your website, follow these steps:
+
+ follow these steps:
 
 Go to the S3 console and select your bucket.
 
@@ -130,20 +136,21 @@ In the "Bucket policy" section, ensure that the policy allowing
 public read access is in place (this should have been created by 
 the CloudFormation template).
 
-S3 Bucket Permissions
-
 Conclusion
 You should now have a functioning static website hosted on 
 Amazon S3:
+
 <img src="images/static-website.png" alt="Static Website">
 
-Note: Welcome to my S3 hosted website is the text in my HTML.You 
-can customize yours to suit your need.
+Note: Welcome to my S3-hosted website is the text in my HTML. You 
+can customize yours to suit your needs.
 
 The CloudFormation template automates most of the 
 setup, but remember to always be cautious with public access 
 settings and only host content that is intended to be publicly 
-accessible.This setup creates a publicly readable S3 bucket. 
+accessible.
+
+This setup creates a publicly readable S3 bucket. 
 Ensure that you only upload content that is intended for public access. For 
 more secure configurations, consider using Amazon CloudFront 
 with your S3 bucket.

@@ -118,6 +118,9 @@ hosting'
    Outputs:
      WebsiteURL:
       b
+Here is my VSCode interface for reference:
+<img src="images/s3-stack-deployment.png" alt="Stack 
+Deployment">
 
 Note: Replace my-static-website-ki with a globally unique bucket 
 name.

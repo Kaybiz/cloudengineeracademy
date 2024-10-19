@@ -1,17 +1,17 @@
 # S3 Static Website Hosting with CloudFormation
 
 ## Project Overview
-This project demonstrates how to set up a static website using 
-Amazon S3 and AWS CloudFormation. It includes steps for creating 
+This project demonstrates how to build and host a static website on Amazon S3 using Infrastructure as Code with AWS CloudFormation. It includes steps for creating 
 the S3 bucket, deploying a simple HTML file, and configuring the 
 necessary permissions for public access.
+
 <p><img src="images/static-website-architecture.png" alt="Static 
 Website Architecture"></p>
 
 ## Prerequisites
 - AWS CLI installed and configured
 - Access to AWS Console
-- A code editor (VS Code, Zed, etc.)
+- A IDE (VS Code, Zed, etc.)
 
 ## Step-by-Step Guide
 
@@ -65,7 +65,7 @@ name.
 
 Save the file.
 
-2. Deploy the CloudFormation Stack
+## 2. Deploy the CloudFormation Stack
 
 Open your terminal.
 
@@ -82,7 +82,7 @@ Wait for the stack creation to complete. You can check the
 status in the AWS CloudFormation console.
 
 
-Stack Deployment
+## Stack Deployment
 
 
 3. Upload HTML File to S3 Bucket
@@ -99,8 +99,7 @@ Copy
 Remember to replace my-static-website-ki with your actual bucket 
 name.
 
-4. View the Static Website
-Navigate to the AWS S3 console.
+## 4. View the Static Website by Navigating to the AWS S3 console.
 
 Find your bucket and click on it.
 
@@ -115,7 +114,7 @@ something like this in the AWS Console:
 <p><img src="images/aws-console-s3-web-stack.png" alt="AWS 
 Console S3 Web Stack"></p>
 
-5. Troubleshooting Access Denied Error
+## 5. Troubleshooting Access Denied Error
 
 <p>If you see an access denied error like this:
 
@@ -136,14 +135,16 @@ In the "Bucket policy" section, ensure that the policy allowing
 public read access is in place (this should have been created by 
 the CloudFormation template).
 
-Conclusion
+## Conclusion
+
+
 You should now have a functioning static website hosted on 
 Amazon S3:
 
 <img src="images/static-website.png" alt="Static Website">
 
-Note: Welcome to my S3-hosted website is the text in my HTML. You 
-can customize yours to suit your needs.
+Note: Welcome to my S3 hosted website is the text in my HTML. You 
+can customize your text (what you want your website to display ) to suit your needs.
 
 The CloudFormation template automates most of the 
 setup, but remember to always be cautious with public access 

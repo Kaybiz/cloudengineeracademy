@@ -67,5 +67,5 @@ For more detailed information on specific projects, please refer to the document
 
 ## Contact
 
-If you have any questions or would like to connect, please feel free to reach out to me [Your Contact Information or LinkedIn profile].
+If you have any questions or would like to connect, please feel free to reach out to me https://www.linkedin.com/in/kayode-ishola-6440699b/.
 

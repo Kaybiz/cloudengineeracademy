@@ -19,4 +19,7 @@ This project deploys basic infrastructure to AWS EC2 as defined in the Terraform
 3. Use `terraform plan` to preview the changes
 4. Apply the changes with `terraform apply`
 
+![ AWS Terra Init ](../readme_files/images/aws-terra-init.png)
+
+
 

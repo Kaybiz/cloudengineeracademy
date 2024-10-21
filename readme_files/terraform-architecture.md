@@ -5,7 +5,10 @@
 
 This project demonstrates a basic Terraform architecture using AWS as the provider. It covers the fundamental workflow of writing infrastructure as code and deploying it to AWS EC2 instances.
 
-![Basic Terraform Architecture](basic-terraform-architecture.png)
+
+![Basic Terraform Architecture](./basic-terraform-architecture.png)
+
+
 
 ## Architecture
 

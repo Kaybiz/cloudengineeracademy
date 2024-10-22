@@ -1,4 +1,4 @@
-```markdown
+
 # RDS Instance Creation with CloudFormation
 
 This documentation outlines the process of creating an Amazon Relational Database instance using AWS CloudFormation.

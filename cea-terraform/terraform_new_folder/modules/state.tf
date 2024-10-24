@@ -5,6 +5,7 @@ terraform {
     region = "us-east-1"
     dynamodb_table = "s3-tf-table"
 
+
   }
 
 }

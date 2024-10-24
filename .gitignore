@@ -12,3 +12,4 @@ override.tf.json
 *_override.tf.json
 .terraformrc
 terraform.rc
+cea-terraform/terraform_new_folder/.terraform/

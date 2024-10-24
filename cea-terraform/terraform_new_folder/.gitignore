@@ -1,0 +1,5 @@
+.terraform/
+<em>.tfstate
+</em>.tfstate.<em>
+crash.log
+</em>.tfvars

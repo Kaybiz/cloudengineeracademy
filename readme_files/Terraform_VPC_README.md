@@ -12,7 +12,7 @@ This project creates a basic AWS network infrastructure using Terraform.
 
 ## Architecture Diagram
 
-![VPC Architecture](./images/vpc_architecture.png)
+![VPC Architecture](./readme_files/images/Vpc architecture.web.png)
 
 ## Resource Details
 

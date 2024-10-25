@@ -45,12 +45,19 @@ The above resources are shown in the image below.
 Here is my terra VPC Configuration in VScode for your reference:
 - ![VPC Screenshot](images/terra-vpc-configurations-in-vscode.png)
 
-Navigate to the Terraform project directory:
+Navigate to the Terraform project directory to see the configuration code:
+<p>The complete Terraform configuration for this VPC setup can be found in the <a href="https://github.com/Kaybiz/cloudengineeracademy/blob/main/cea-terraform/terraform_new_folder/main.tf">main.tf</a> file.</p>
+<p>Key resources defined in this configuration include:</p>
+<ul>
+<li><p>VPC</p>
+</li><li><p>Subnets</p>
+</li><li><p>Internet Gateway</p>
+</li><li><p>Route Table</p>
+</li><li><p>Route Table Associations</p>
+</li></ul>
 
-cd 
-/cloudengineeracademy/cea-terraform/terraform_new_folder/main.tf
+## Terraform Commands Used
 
-cea-terraform/terraform_new_folder/main.tf
 Run terraform init to initialize Terraform
 
 Run terraform plan to preview changes
@@ -60,8 +67,6 @@ Run terraform apply to create the infrastructure
 The image below is my terminal results of the apply command.
 
 ![VPC Terminal Result](images/terraform-apply-vpc-terminal-result.png)
-
-
 
 ## Cleaning Up
 To destroy the created resources:
@@ -73,4 +78,4 @@ configuration.
 
 Project Location
 The Terraform configuration files for this project are located in:
-/Users/admin/Documents/CLOUDENGINEERACADEMY/cea-terraform/terraform_new_folder
+href="https://github.com/Kaybiz/cloudengineeracademy/blob/main/cea-terraform/terraform_new_folder/main.tf">main.tf</a> file.</p>

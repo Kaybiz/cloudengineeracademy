@@ -40,82 +40,15 @@ The above resources are shown in the image below.
 ## The AWS console screenshot shows the VPC I created with terraform configurations.
 - ![VPC Screenshot](images/vpc-created-with-terra.png)
   
-## Terraform Configuration
+## Terraform Configuration and How to Use
 
-Key parts of our Terraform configuration:
+Here is my terra VPC Configuration in VScode for your reference:
+- ![VPC Screenshot](images/terra-vpc-configurations-in-vscode.png)
 
-```hcl
-# VPC
-resource "aws_vpc" "main" {
-    cidr_block = "192.168.0.0/16"
-    tags = {
-        Name = "main-tf-vpc"
-    }
-}
-
-# Subnets
-resource "aws_subnet" "subnet1" {
-    vpc_id     = aws_vpc.main.id
-    cidr_block = "192.168.1.0/24"
-    availability_zone = "us-east-1a"
-    
-tags = {
-        Name = "subnet 1"
-}
-
-#Subnet 2
-resource "aws_subnet" "subnet2" {
-  vpc_id   = aws_vpc.main.id
-  cidr_block   = "192.168.2.0/24"
-  availability_zone = "us-east-1b"
-  
-  tags = {
-    Name = "subnet 2"
-  }
-}
-
-
-#Internet Gateway
-resource "aws_internet_gateway" "igw" {
-  vpc_id = aws_vpc.main.id
-    
-    tags = {
-        Name = "main-tf-igw"
-    }
-}
-
-#Route Table
-resource "aws_route_table" "route_table" {
-  vpc_id = aws_vpc.main.id
-
-  route {
-    cidr_block = "0.0.0.0/0"
-    gateway_id = aws_internet_gateway.igw.id
-  }
-
-  tags = {
-    Name = "main-route-table"
-  }
-}
-
-#Route Table Association Subnet 1
-resource "aws_route_table_association" "a" {
-  subnet_id      = aws_subnet.subnet1.id
-  route_table_id = aws_route_table.route_table.id
-}
-
-#Route Table Association Subnet 2
-resource "aws_route_table_association" "b" {
-  subnet_id      = aws_subnet.subnet2.id
-  route_table_id = aws_route_table.route_table.id
-
-## How to Use
 Navigate to the Terraform project directory:
 
 cd 
 /Users/admin/Documents/CLOUDENGINEERACADEMY/cea-terraform/terraform_new_folder
-
-
 
 Run terraform init to initialize Terraform
 
@@ -123,10 +56,16 @@ Run terraform plan to preview changes
 
 Run terraform apply to create the infrastructure
 
-Cleaning Up
+The image below is my terminal results of the apply command.
+
+![VPC Terminal Result](images/terraform-apply-vpc-terminal-result.png)
+
+
+
+## Cleaning Up
 To destroy the created resources:
 
-terraform destroy
+Run terraform destroy
 
 Caution: This will remove all resources created by this Terraform 
 configuration.

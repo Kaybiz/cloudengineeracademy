@@ -48,8 +48,9 @@ Here is my terra VPC Configuration in VScode for your reference:
 Navigate to the Terraform project directory:
 
 cd 
-/Users/admin/Documents/CLOUDENGINEERACADEMY/cea-terraform/terraform_new_folder
+/cloudengineeracademy/cea-terraform/terraform_new_folder/main.tf
 
+cea-terraform/terraform_new_folder/main.tf
 Run terraform init to initialize Terraform
 
 Run terraform plan to preview changes

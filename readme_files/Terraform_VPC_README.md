@@ -18,24 +18,16 @@ This project creates a basic AWS network infrastructure using Terraform.
 
 ### VPC
 - CIDR Block: 192.168.0.0/16
-![VPC Screenshot](./images/vpc_screenshot.png)
 
 ### Subnets
 1. Subnet 1
    - CIDR Block: 192.168.1.0/24
    - Availability Zone: us-east-1a
-   ![Subnet 1 Screenshot](./images/subnet1_screenshot.png)
-
 2. Subnet 2
    - CIDR Block: 192.168.2.0/24
    - Availability Zone: us-east-1b
-   ![Subnet 2 Screenshot](./images/subnet2_screenshot.png)
-
-### Internet Gateway
-![Internet Gateway Screenshot](./images/igw_screenshot.png)
 
 ### Route Table
-![Route Table Screenshot](./images/route_table_screenshot.png)
 - Routes:
   - Local route (auto-added)
   - 0.0.0.0/0 -> Internet Gateway
@@ -43,6 +35,11 @@ This project creates a basic AWS network infrastructure using Terraform.
 ### Route Table Associations
 - Subnet 1 and Subnet 2 associated with the route table
 
+The above resources are shown in the image below. 
+
+## The AWS console screenshot shows the VPC I created with terraform configurations.
+- ![VPC Screenshot](images/vpc-created-with-terra.png)
+  
 ## Terraform Configuration
 
 Key parts of our Terraform configuration:
@@ -111,8 +108,8 @@ resource "aws_route_table_association" "a" {
 resource "aws_route_table_association" "b" {
   subnet_id      = aws_subnet.subnet2.id
   route_table_id = aws_route_table.route_table.id
-}
-How to Use
+
+## How to Use
 Navigate to the Terraform project directory:
 
 cd 

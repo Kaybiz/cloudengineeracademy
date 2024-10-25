@@ -3,3 +3,5 @@
 </em>.tfstate.<em>
 crash.log
 </em>.tfvars
+terraform.tfstate
+terraform.tfstate.backup

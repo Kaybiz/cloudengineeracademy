@@ -76,6 +76,12 @@ Run terraform destroy
 Caution: This will remove all resources created by this Terraform 
 configuration.
 
+The infrastructure has been destroyed, but the <a href="https://github.com/Kaybiz/cloudengineeracademy/blob/main/cea-terraform/terraform_new_folder/main.tf">main.tf</a> file code remains as a reference for future use.
+
+See the image below for the successful destruction of the VPC.
+
+![VPC Destroyed](images/terra-vpc-destroyed.png)
+
 ## Lessons Learned and Skills Gained
 
 Through the process of creating this VPC infrastructure with Terraform, I have gained valuable experience and skills:
